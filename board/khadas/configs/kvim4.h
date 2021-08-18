@@ -84,8 +84,8 @@
         "cvbsmode=576cvbs\0" \
         "display_width=1920\0" \
         "display_height=1080\0" \
-        "display_bpp=16\0" \
-        "display_color_index=16\0" \
+        "display_bpp=24\0" \
+        "display_color_index=24\0" \
         "display_layer=osd0\0" \
         "display_color_fg=0xffff\0" \
         "display_color_bg=0\0" \
@@ -238,11 +238,13 @@
             "fi;"\
             "\0"\
         "load_bmp_logo="\
-            "if rdext4pic ${board_logo_part} $loadaddr; then bmp display $logoLoadAddr; " \
-            "else if imgread pic logo bootup $loadaddr; then bmp display $bootup_offset; fi; fi;" \
+            "if load mmc 0:2 ${loadaddr} /usr/share/fenix/logo/logo.bmp || load mmc 1:2 ${loadaddr} /usr/share/fenix/logo/logo.bmp || load mmc 1:4 ${loadaddr} /usr/share/fenix/logo/logo.bmp; then "\
+                "bmp display ${loadaddr};"\
+                "bmp scale;"\
+            "fi;"\
             "\0"\
         "init_display="\
-	"setenv outputmode2 ${hdmimode};"\
+	        "setenv outputmode2 ${hdmimode};"\
             "osd dual_logo;"\
             "\0"\
         "cmdline_keys="\
