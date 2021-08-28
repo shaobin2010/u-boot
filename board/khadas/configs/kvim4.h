@@ -128,6 +128,7 @@
             "\0"\
         "storeargs="\
             "get_bootloaderversion;" \
+            "get_rebootmode;"\
             "setenv bootargs ${initargs} otg_device=${otg_device} "\
                 "logo=${display_layer},loaded,${fb_addr} vout=${outputmode},enable vout2=${outputmode2},enable "\
                 "panel_type=${panel_type} lcd_ctrl=${lcd_ctrl} lcd_debug=${lcd_debug} "\
@@ -135,7 +136,7 @@
                 "hdmimode=${hdmimode} outputmode=${outputmode} "\
                 "hdr_policy=${hdr_policy} hdr_priority=${hdr_priority} "\
                 "osd_reverse=${osd_reverse} video_reverse=${video_reverse} irq_check_en=${Irq_check_en}  "\
-                "androidboot.selinux=${EnableSelinux} androidboot.firstboot=${firstboot} jtag=${jtag}; "\
+                "androidboot.selinux=${EnableSelinux} androidboot.firstboot=${firstboot} jtag=${jtag} reboot_mode=${reboot_mode}; "\
             "setenv bootargs ${bootargs} androidboot.bootloader=${bootloader_version} androidboot.hardware=amlogic;"\
             "run cmdline_keys;"\
             "\0"\
@@ -284,7 +285,8 @@
             "run upgrade_check;"\
             "run init_display;"\
             "run storeargs;"\
-            "run upgrade_key;"
+            "run upgrade_key;"\
+            "run switch_bootmode;"
 
 /* dual logo, normal boot */
 #define CONFIG_DUAL_LOGO \
