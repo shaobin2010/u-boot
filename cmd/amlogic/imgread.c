@@ -1103,6 +1103,7 @@ U_BOOT_CMD(
 );
 
 #if defined(CONFIG_CMD_AUTOSCR)
+#else
 /*
  * Keep for now for backward compatibility;
  * remove later when support for "autoscr" goes away.
