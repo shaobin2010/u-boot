@@ -426,7 +426,9 @@ scripts_basic:
 			cp $(srctree)/.git/hooks/pre-commit $(srctree)/.git/hooks/pre-commit-old; \
 		fi; \
 		cp $(srctree)/scripts/amlogic/coding_style/pre-commit $(srctree)/.git/hooks/; \
+		cp $(srctree)/scripts/amlogic/coding_style/commit-msg $(srctree)/.git/hooks/; \
 		chmod +x $(srctree)/.git/hooks/pre-commit; \
+		chmod +x $(srctree)/.git/hooks/commit-msg; \
 	fi
 
 # To avoid any implicit rule to kick in, define an empty command.
