@@ -110,8 +110,8 @@
         "lcd1_ctrl=0x00000000\0" \
         "lcd2_ctrl=0x00000000\0" \
         "lcd_debug=0x00000000\0" \
-	"outputmode=panel1\0" \
-	"outputmode2=1080p60hz\0" \
+	    "outputmode=panel1\0" \
+	    "outputmode2=1080p60hz\0" \
         "hdmimode=1080p60hz\0" \
         "cvbsmode=576cvbs\0" \
         "display_width=1920\0" \
@@ -277,9 +277,7 @@
             "fi;"\
             "\0"\
         "init_display="\
-	        "setenv outputmode2 ${hdmimode};"\
-            "osd dual_logo;"\
-            "\0"\
+            "setenv outputmode 1080p60hz;" CONFIG_SINGLE_LOGO \
         "cmdline_keys="\
 			"setenv region_code US;"\
             "if keyman init 0x1234; then "\
